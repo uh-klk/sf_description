@@ -1,0 +1,11 @@
+<!-- -*- mode: XML -*- -->
+
+<launch>
+	<arg name="robot_name" default="sunflower1_1"/>
+	<param name="robot_description" 
+		command="$(find xacro)/xacro '$(find sf_robot_description)/robots/$(arg robot_name).xacro'" />
+
+	<node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher">
+		<param name="publish_frequency" type="double" value="15.0" />
+	</node>
+</launch>
