@@ -9,7 +9,8 @@
     <param name="publish_frequency" type="double" value="15.0" />
   </node>
 
-  <!-- node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" / -->
+  <!-- set "joint_state_gui" above to "true", then uncomment the line below to use the joint_state_gui -->
+  <!--node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" /-->
 
 </launch>
 

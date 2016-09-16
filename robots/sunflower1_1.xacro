@@ -110,7 +110,7 @@
 			</visual>
 		</link>
 		<xacro:ax12 name="${name}_lower" parent="${name}" minPosition="-1.5707" maxPosition="1.5707" maxVelocity="1">
-			<origin rpy="0 0 1.57079" xyz="0 0 0" />
+			<origin rpy="0 0 -1.57079" xyz="0 0 0" />
 		</xacro:ax12>
 		<xacro:fp04_02 name="${name}_lower_hinge" parent="${name}_lower">
 		</xacro:fp04_02>
@@ -122,10 +122,10 @@
 		<xacro:ax12inverted name="head_pan" parent="${name}_upper_hinge" minPosition="-1.5707" maxPosition="1.5707" maxVelocity="1">
 			<origin rpy="0 0 -1.57079" xyz="0 0 0" />
 		</xacro:ax12inverted>
-		<xacro:ax12 name="head_tilt" parent="head_pan" minPosition="-1.5707" maxPosition="1.5707" maxVelocity="1">
-			<origin rpy="0 0 0" xyz="0 0 0" />
+		<xacro:ax12 name="head_roll" parent="head_pan" minPosition="-1.5707" maxPosition="1.5707" maxVelocity="1">
+			<origin rpy="0 0 3.142" xyz="0 0 0" />
 		</xacro:ax12>
-		<xacro:fp04_02 name="head_tilt_hinge" parent="head_tilt">
+		<xacro:fp04_02 name="head_roll_hinge" parent="head_roll">
 		</xacro:fp04_02>
 	</xacro:macro>
 
@@ -420,7 +420,7 @@
 	<xacro:neck name="neck" parent="body_top">
 		<origin rpy="0 0 0" xyz="0 0 0" />
 	</xacro:neck>
-	<xacro:head name="head" parent="head_tilt_hinge">
+	<xacro:head name="head" parent="head_roll_hinge">
 		<origin rpy="0 0 0" xyz="0 0 0" />
 	</xacro:head>
 
