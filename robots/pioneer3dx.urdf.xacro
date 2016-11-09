@@ -59,6 +59,7 @@
 		<!-- material value="Gazebo/Black"/ -->
 		<material>Gazebo/Black</material>
 	</gazebo>
+
     <joint name="base_top_joint" type="fixed">
 		<origin xyz="-0.045 0 0.234" rpy="0 0 0"/>
 		<axis xzy="0 0 1"/>
@@ -93,6 +94,7 @@
 	<gazebo reference="back_sonar">
 		<material value="Gazebo/Yellow"/>
 	</gazebo>
+
 	<joint name="base_back_joint" type="fixed">
 		<origin xyz="-0.198 0 0.208" rpy="0 0 0"/>
 		<parent link="base_link"/>
@@ -123,6 +125,7 @@
 			</geometry>
 		</collision>
 	</link>
+
 	<joint name="base_front_joint" type="fixed">
 		<origin xyz="0.109 0 0.209" rpy="0 0 0"/>
 		<parent link="base_link"/>
@@ -130,7 +133,7 @@
 	</joint>
 
 	<!-- Caster -->
-	<joint name="base_caster_swivel_joint" type="continuous">
+	<joint name="base_caster_swivel_joint" type="fixed">
 		<origin xyz="-0.180 0 0.055" rpy="0 0 0"/>
         <axis xyz="0 0 1" />
 		<anchor xyz="0 0 0"/>
@@ -143,26 +146,25 @@
 	<link name="caster_swivel">
 		<inertial>
 			<mass value="0.1"/>	
-			<origin xyz="0 0 0"/>
-            
+			<origin xyz="0 0 0"/>          
 			<inertia ixx="0.01" ixy="0" ixz="0"
 				 iyy="0.01" iyz="0" izz="0.01"/>
   	 	</inertial>
-	<visual name="pioneer_geom">
-		<origin xyz="-0.004 0 0" rpy="0 0 0"/>
-		<geometry name="pioneer_geom">
-			<mesh filename="package://sf_description/meshes/p3dx_meshes/caster_swivel.stl"/>
-		</geometry>
-		<material name="caster_swivel">
-			<color rgba="0.5 0.5 0.5 1"/>
-		</material>
-	</visual>
-	<collision>
-		<origin xyz="0 0 0" rpy="0 0 0"/>
-		<geometry>
-			<box size="0 0 0"/>
-		</geometry>
-	</collision>
+	    <visual name="pioneer_geom">
+		    <origin xyz="-0.004 0 0" rpy="0 0 0"/>
+		    <geometry name="pioneer_geom">
+	    		<mesh filename="package://sf_description/meshes/p3dx_meshes/caster_swivel.stl"/>
+    		</geometry>
+		    <material name="caster_swivel">
+			    <color rgba="0.5 0.5 0.5 1"/>
+    		</material>
+	    </visual>
+    	<collision>
+	    	<origin xyz="0 0 0" rpy="0 0 0"/>
+	    	<geometry>
+	    		<box size="0 0 0"/>
+	    	</geometry>
+	    </collision>
 	</link>
 	<gazebo reference="caster_swivel">
 		<material value="Gazebo/Grey"/>
@@ -176,33 +178,33 @@
 			<inertia ixx="0.012411765597" ixy="-0.000711733678" ixz="0.00050272983"
 				 iyy="0.015218160428" iyz="-0.000004273467" izz="0.011763977943"/>
   	 	</inertial>
-	<visual name="pioneer_geom">
-		<origin xyz="0 0 0" rpy="0 0 0"/>
-		<geometry name="pioneer_geom">
-			<mesh filename="package://sf_description/meshes/p3dx_meshes/caster_hubcap.stl"/>
-		</geometry>
-		<material name="caster_swivel">
-			<color rgba="0.5 0.5 0.5 1"/>
-		</material>
-	</visual>
-	<collision>
-		<origin xyz="0 0 0" rpy="0 0 0"/>
-		<geometry>
-			<box size="0.05 0.05 0.05"/>
-		</geometry>
-	</collision>
+    	<visual name="pioneer_geom">
+	    	<origin xyz="0 0 0" rpy="0 0 0"/>
+	    	<geometry name="pioneer_geom">
+	    		<mesh filename="package://sf_description/meshes/p3dx_meshes/caster_hubcap.stl"/>
+	    	</geometry>
+	    	<material name="caster_swivel">
+	    		<color rgba="0.5 0.5 0.5 1"/>
+	    	</material>
+	    </visual>
+    	<collision>
+	    	<origin xyz="0 0 0" rpy="0 0 0"/>
+	    	<geometry>
+	    		<box size="0.05 0.05 0.05"/>
+	    	</geometry>
+	    </collision>
 	</link>
 	<gazebo reference="caster_hubcap">
 		<material value="Gazebo/Grey"/>
 	</gazebo>
 
-	<joint name="caster_swivel_hubcap_joint" type="continuous">
+	<joint name="caster_swivel_hubcap_joint" type="fixed">
 		<origin xyz="-0.026 0 -0.016" rpy="0 0 0"/>
 		<axis xyz="0 1 0"/>
 		<anchor xyz="0 0 0"/>
-    <limit effort="100" velocity="100" k_velocity="0" />
-    <joint_properties damping="0.0" friction="0.0" />
-	  <parent link="caster_swivel"/>
+        <limit effort="100" velocity="100" k_velocity="0" />
+        <joint_properties damping="0.0" friction="0.0" />
+	    <parent link="caster_swivel"/>
 		<child link="caster_wheel"/>
 	</joint>
 
@@ -213,22 +215,22 @@
 			<inertia ixx="0.012411765597" ixy="-0.000711733678" ixz="0.00050272983"
 				 iyy="0.015218160428" iyz="-0.000004273467" izz="0.011763977943"/>
   	 	</inertial>
-	<visual name="pioneer_geom">
-		<origin xyz="0 0 0" rpy="0 0 0"/>
-		<geometry name="pioneer_geom">
-			<mesh filename="package://sf_description/meshes/p3dx_meshes/caster_wheel.stl"/>
-		</geometry>
-		<material name="WheelBlack">
-			<color rgba="0.117 0.117 0.117 1"/>
-		</material>
-	</visual>
-	<collision>
-		<origin xyz="0 0 0" rpy="${-3.1415927/2.0} 0 0"/>
-		<geometry>
+	    <visual name="pioneer_geom">
+		    <origin xyz="0 0 0" rpy="0 0 0"/>
+		    <geometry name="pioneer_geom">
+		    	<mesh filename="package://sf_description/meshes/p3dx_meshes/caster_wheel.stl"/>
+		    </geometry>
+		    <material name="WheelBlack">
+		    	<color rgba="0.117 0.117 0.117 1"/>
+		    </material>
+	    </visual>
+	    <collision>
+		    <origin xyz="0 0 0" rpy="${-3.1415927/2.0} 0 0"/>
+		    <geometry>
 			<!--<mesh filename="package://sf_description/meshes/p3dx_meshes/caster_wheel.stl"/>-->
-			<cylinder radius="0.0375" length="0.01"/>
-		</geometry>
-	</collision>
+		    	<cylinder radius="0.0375" length="0.01"/>
+		    </geometry>
+	    </collision>
 	</link>
 	<gazebo reference="left_hub">
 		<material value="Gazebo/Yellow"/>
@@ -299,12 +301,12 @@
 			</material>
 		</visual>
 		<collision>
-		<origin xyz="0 0 0" rpy="${-3.1415927/2.0} 0 0"/>
-		<geometry>
+	    	<origin xyz="0 0 0" rpy="${-3.1415927/2.0} 0 0"/>
+	    	<geometry>
 			<!--<mesh filename="package://sf_description/meshes/p3dx_meshes/caster_wheel.stl"/>-->
-			<cylinder radius="0.09" length="0.01"/>
-		</geometry>
-	</collision>
+	    		<cylinder radius="0.09" length="0.01"/>
+	    	</geometry>
+	    </collision>
 	</link>
 	<gazebo reference="right_hub">
 		<material value="Gazebo/Yellow"/>
@@ -337,9 +339,6 @@
 	<gazebo reference="right_wheel_joint">
 		<material value="Gazebo/Black"/>
 	</gazebo>
-
-
-	
 
 	<create>
 	<back_sonar parent="base_link"/>

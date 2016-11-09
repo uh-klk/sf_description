@@ -1,7 +1,7 @@
 <!-- -*- mode: XML -*- -->
 <launch>
   <arg name="robot_name" default="sunflower1_1"/>
-  <arg name="joint_state_gui" default="false" />
+  <arg name="joint_state_gui" default="true" />
   <param name="robot_description" command="$(find xacro)/xacro.py '$(find sf_description)/robots/$(arg robot_name).xacro'" />
   <param name="use_gui" value="$(arg joint_state_gui)"/>
 
