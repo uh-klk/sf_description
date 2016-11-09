@@ -1,0 +1,16 @@
+<!-- -*- mode: XML -*- -->
+<launch>
+  <arg name="robot_name" default="sunflower1_1"/>
+  <arg name="joint_state_gui" default="true" />
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find sf_description)/robots/$(arg robot_name).xacro'" />
+  <param name="use_gui" value="$(arg joint_state_gui)"/>
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" >
+    <param name="publish_frequency" type="double" value="15.0" />
+  </node>
+
+  <!-- set "joint_state_gui" above to "true", then uncomment the line below to use the joint_state_gui -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+
+</launch>
+
